@@ -122,7 +122,6 @@
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  border: 2px solid var(--color-cyan);
   background: rgba(0, 173, 239, 0.12);
   font-size: 1.75rem;
 }
@@ -160,7 +159,6 @@
   font-family: var(--font-display);
   font-size: 2.75rem;
   font-weight: 800;
-  color: #ef4444;
   margin-top: 0.5rem;
   text-transform: uppercase;
   letter-spacing: 0.02em;
@@ -169,6 +167,13 @@
 .theme-brand .tagline-block {
   margin-top: 2.5rem;
   max-width: 52rem;
+}
+
+.theme-brand .tagline-block--center {
+  margin-top: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 .theme-brand .tagline-block p {
@@ -184,6 +189,209 @@
   gap: 1.25rem;
   width: 100%;
   margin-bottom: 2rem;
+}
+
+.theme-brand .slide-layout--problem {
+  height: 100%;
+  padding: 2.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.theme-brand .problem-factors {
+  flex: 2;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+  align-items: stretch;
+  gap: 0.75rem 1.25rem;
+  min-height: 0;
+}
+
+.theme-brand .problem-factor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.25rem;
+  padding: 1.5rem 1rem;
+  border-radius: 12px;
+  border-width: 1px;
+  border-style: solid;
+  text-align: center;
+  min-height: 0;
+}
+
+.theme-brand .problem-factor__label {
+  margin: 0;
+  line-height: 1.15;
+  align-self: stretch;
+}
+
+.theme-brand .problem-factor__operator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1;
+  align-self: center;
+}
+
+.theme-brand .problem-factor__icons {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 0.65rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.theme-brand .problem-factor__icons--csp {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  width: 100%;
+  flex: 1;
+  align-content: flex-start;
+  align-items: center;
+}
+
+.theme-brand .problem-factor__csp-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5rem;
+  width: 100%;
+  max-width: 12rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.theme-brand .problem-factor__csp-mark--dark {
+  background: rgba(0, 0, 0, 0.92);
+}
+
+.theme-brand .problem-factor__csp-mark:not(.problem-factor__csp-mark--dark) {
+  background: var(--color-white);
+}
+
+.theme-brand .problem-factor__csp-mark img {
+  max-height: 3.75rem;
+  max-width: 8rem;
+  width: auto;
+  object-fit: contain;
+}
+
+.theme-brand .problem-factor__services-wrap,
+.theme-brand .problem-factor__firms-wrap {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, #000 96%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 96%, transparent 100%);
+}
+
+.theme-brand .problem-factor__services-wrap {
+  max-height: 33.5rem;
+}
+
+.theme-brand .problem-factor__firms-wrap {
+  max-height: 32rem;
+}
+
+.theme-brand .problem-factor__icons--services {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(5, auto);
+  gap: 0.5rem;
+  width: 100%;
+  align-content: start;
+}
+
+.theme-brand .problem-factor__service-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  padding: 0.35rem;
+  border-radius: 8px;
+  background: var(--color-white);
+}
+
+.theme-brand .problem-factor__service-mark img {
+  width: 100%;
+  max-width: 44px;
+  max-height: 44px;
+  object-fit: contain;
+}
+
+.theme-brand .problem-factor__icons--firms {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  width: 100%;
+  align-items: center;
+  align-content: flex-start;
+}
+
+.theme-brand .problem-factor__firm-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 12rem;
+  min-height: 5.5rem;
+  padding: 1rem 0.65rem;
+  border-radius: 8px;
+  background: var(--color-white);
+  flex-shrink: 0;
+}
+
+.theme-brand .problem-factor__firm-mark img {
+  width: 100%;
+  max-height: 3.5rem;
+  object-fit: contain;
+}
+
+.theme-brand .problem-factor__icons--jurisdictions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, auto);
+  gap: 0.65rem;
+  width: 100%;
+  flex: 1;
+  align-content: start;
+}
+
+.theme-brand .problem-factor__icons--jurisdictions .icon-chip {
+  width: 100%;
+  max-width: 16rem;
+  aspect-ratio: 1;
+  height: auto;
+  font-size: 7rem;
+  border-width: 4px;
+  justify-self: center;
+}
+
+.theme-brand .problem-bottom {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 0;
+}
+
+.theme-brand .problem-bottom .equation {
+  margin: 0;
 }
 
 .theme-brand .three-sections {
