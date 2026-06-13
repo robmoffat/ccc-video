@@ -200,7 +200,7 @@
 }
 
 .theme-brand .problem-factors {
-  flex: 2;
+  flex: 2.2 1 0;
   display: grid;
   grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
   align-items: stretch;
@@ -220,6 +220,7 @@
   border-style: solid;
   text-align: center;
   min-height: 0;
+  height: 100%;
 }
 
 .theme-brand .problem-factor__label {
@@ -291,19 +292,11 @@
 .theme-brand .problem-factor__firms-wrap {
   position: relative;
   width: 100%;
-  flex: 1;
+  flex: 1 1 0;
   min-height: 0;
   overflow: hidden;
   -webkit-mask-image: linear-gradient(to bottom, #000 96%, transparent 100%);
-  mask-image: linear-gradient(to bottom, #000 96%, transparent 100%);
-}
-
-.theme-brand .problem-factor__services-wrap {
-  max-height: 33.5rem;
-}
-
-.theme-brand .problem-factor__firms-wrap {
-  max-height: 32rem;
+  mask-image: linear-gradient(to bottom, #000 92%, transparent 100%);
 }
 
 .theme-brand .problem-factor__icons--services {
@@ -315,7 +308,8 @@
   align-content: start;
 }
 
-.theme-brand .problem-factor__service-mark {
+.theme-brand .problem-factor__service-mark,
+.theme-brand .problem-factor__firm-mark {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -323,6 +317,11 @@
   padding: 0.35rem;
   border-radius: 8px;
   background: var(--color-white);
+  flex-shrink: 0;
+}
+
+.theme-brand .problem-factor__service-mark {
+  width: 100%;
 }
 
 .theme-brand .problem-factor__service-mark img {
@@ -343,21 +342,12 @@
 }
 
 .theme-brand .problem-factor__firm-mark {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 12rem;
-  min-height: 5.5rem;
-  padding: 1rem 0.65rem;
-  border-radius: 8px;
-  background: var(--color-white);
-  flex-shrink: 0;
+  width: calc((100% - 1rem) / 3);
 }
 
 .theme-brand .problem-factor__firm-mark img {
   width: 100%;
-  max-height: 3.5rem;
+  max-height: 44px;
   object-fit: contain;
 }
 
@@ -377,8 +367,9 @@
   aspect-ratio: 1;
   height: auto;
   font-size: 7rem;
-  border-width: 4px;
   justify-self: center;
+  background: transparent;
+  border: none;
 }
 
 .theme-brand .problem-bottom {
