@@ -1,0 +1,523 @@
+/* Shared slide layouts — use with presentation-brand.css */
+
+.theme-brand .slide-layout {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.theme-brand .slide-layout--center {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem;
+}
+
+.theme-brand .slide-layout--padded {
+  padding: 3.5rem 4rem;
+}
+
+.theme-brand .slide-logo-center img {
+  height: 200px;
+  width: auto;
+}
+
+.theme-brand .slide-logo-large img {
+  height: 280px;
+  width: auto;
+}
+
+.theme-brand .slide-question {
+  font-family: var(--font-display);
+  font-size: 3.25rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--color-white);
+  max-width: 72rem;
+}
+
+.theme-brand .slide-title {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--color-white);
+}
+
+.theme-brand .slide-subtitle {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--color-contrast);
+  margin-top: 1rem;
+}
+
+.theme-brand .slide-step-label {
+  font-family: var(--font-display);
+  font-size: 8rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--color-accent);
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+.theme-brand .slide-url {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--color-cyan);
+  letter-spacing: -0.01em;
+}
+
+.theme-brand .slide-section-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-cyan);
+  margin-bottom: 1.25rem;
+}
+
+.theme-brand .badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.theme-brand .tool-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 140px;
+  padding: 0.85rem 1.25rem;
+  border-radius: 10px;
+  border: 1px solid var(--color-border-cyan);
+  background: var(--color-panel-cyan);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-white);
+  text-align: center;
+}
+
+.theme-brand .tool-badge--large {
+  min-width: 180px;
+  padding: 1.1rem 1.5rem;
+  font-size: 1.125rem;
+}
+
+.theme-brand .icon-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 2px solid var(--color-cyan);
+  background: rgba(0, 173, 239, 0.12);
+  font-size: 1.75rem;
+}
+
+.theme-brand .icon-chip-row {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.theme-brand .equation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 2rem 0;
+}
+
+.theme-brand .equation__line {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-white);
+  line-height: 1.3;
+}
+
+.theme-brand .equation__operator {
+  font-size: 2rem;
+  color: var(--color-cyan);
+  line-height: 1;
+}
+
+.theme-brand .equation__result {
+  font-family: var(--font-display);
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: #ef4444;
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.theme-brand .tagline-block {
+  margin-top: 2.5rem;
+  max-width: 52rem;
+}
+
+.theme-brand .tagline-block p {
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: var(--color-body-muted);
+}
+
+.theme-brand .visual-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.theme-brand .three-sections {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0;
+  height: 100%;
+}
+
+.theme-brand .three-sections__section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 4rem;
+  border-bottom: 1px solid var(--color-border-cyan-soft);
+}
+
+.theme-brand .three-sections__section:last-child {
+  border-bottom: none;
+}
+
+.theme-brand .flow-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.theme-brand .flow-box {
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--color-border-cyan);
+  background: var(--color-panel-cyan);
+  min-width: 200px;
+  text-align: center;
+}
+
+.theme-brand .flow-box__title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.theme-brand .flow-box__sub {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-body-muted);
+  margin-top: 0.35rem;
+}
+
+.theme-brand .flow-arrow {
+  font-size: 2.5rem;
+  color: var(--color-cyan);
+  line-height: 1;
+}
+
+.theme-brand .arch-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  height: 100%;
+  padding: 0;
+  align-items: stretch;
+}
+
+.theme-brand .arch-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3.5rem 4rem;
+  height: 100%;
+}
+
+.theme-brand .arch-panel--left {
+  border-right: 2px solid var(--color-border-cyan);
+  background: rgba(0, 173, 239, 0.04);
+}
+
+.theme-brand .arch-panel--right {
+  background: rgba(0, 173, 239, 0.08);
+}
+
+.theme-brand .arch-panel__title {
+  margin-bottom: 2.5rem;
+}
+
+.theme-brand .arch-panel--right .arch-panel__title {
+  text-align: center;
+}
+
+.theme-brand .arch-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.theme-brand .arch-input {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  border: 1px solid var(--color-border-cyan-soft);
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.theme-brand .arch-input__icon {
+  font-size: 2rem;
+  width: 3rem;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.theme-brand .arch-input__label {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: var(--color-white);
+}
+
+.theme-brand .layer-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.theme-brand .layer-stack__item {
+  padding: 1.1rem 1.5rem;
+  border: 1px solid var(--color-border-cyan);
+  border-bottom: none;
+  background: rgba(0, 173, 239, 0.06);
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-white);
+  text-align: center;
+}
+
+.theme-brand .layer-stack__item:first-child {
+  border-radius: 12px 12px 0 0;
+}
+
+.theme-brand .layer-stack__item:last-child {
+  border-bottom: 1px solid var(--color-border-cyan);
+  border-radius: 0 0 12px 12px;
+  background: var(--color-panel-cyan);
+}
+
+.theme-brand .pipeline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.5rem;
+  padding: 3.5rem 4rem;
+  height: 100%;
+  justify-content: center;
+}
+
+.theme-brand .pipeline__node {
+  padding: 1.5rem 3rem;
+  border-radius: 12px;
+  border: 2px solid var(--color-cyan);
+  background: var(--color-panel-cyan);
+  text-align: center;
+}
+
+.theme-brand .pipeline__node--main {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-accent);
+}
+
+.theme-brand .pipeline__node-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.theme-brand .pipeline__node-sub {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  color: var(--color-body-muted);
+  margin-top: 0.25rem;
+}
+
+.theme-brand .pipeline__arrow {
+  font-size: 2rem;
+  color: var(--color-cyan);
+}
+
+.theme-brand .pipeline__fork {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3rem;
+  width: 100%;
+  max-width: 1500px;
+  margin-top: 0.5rem;
+}
+
+.theme-brand .pipeline__branch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.theme-brand .ecosystem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1320px;
+  margin: 2rem 0;
+  align-items: stretch;
+}
+
+.theme-brand .ecosystem-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 190px;
+  height: 100%;
+  padding: 1.5rem 1.25rem 1.25rem;
+  border-radius: 12px;
+  border: 1px solid var(--color-border-cyan-soft);
+  background: rgba(0, 173, 239, 0.04);
+}
+
+.theme-brand .ecosystem-logo__mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.theme-brand .ecosystem-logo__mark--light {
+  background: var(--color-white);
+  border-radius: 12px;
+  padding: 1rem 1.75rem;
+  max-width: 320px;
+}
+
+.theme-brand .ecosystem-logo img {
+  max-width: 100%;
+  max-height: 110px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.theme-brand .ecosystem-logo__mark--light img {
+  max-height: 88px;
+}
+
+.theme-brand .ecosystem-logo__label {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-body-muted);
+  text-align: center;
+  margin-top: auto;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.theme-brand .gemara-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 2.5rem;
+}
+
+.theme-brand .gemara-logo-badge {
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--color-border-cyan);
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.theme-brand .gemara-layers {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0 2rem;
+}
+
+.theme-brand .gemara-layer {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-border-cyan);
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(0, 173, 239, 0.05);
+}
+
+.theme-brand .gemara-layer__num {
+  background: var(--color-cyan);
+  color: var(--color-black);
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.theme-brand .gemara-layer__title {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-white);
+  padding: 0.75rem 0.5rem 0.25rem;
+  text-align: center;
+  line-height: 1.25;
+  flex: 1;
+}
+
+.theme-brand .gemara-layer__desc {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--color-body-muted);
+  padding: 0 0.5rem 0.75rem;
+  text-align: center;
+  line-height: 1.35;
+}

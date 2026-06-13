@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" role="img" aria-label="Gemara">
+  <rect width="240" height="80" rx="12" fill="#0a1628" stroke="#00adef" stroke-width="2"/>
+  <g transform="translate(28,18)">
+    <rect x="0" y="24" width="36" height="8" rx="2" fill="#008cb8"/>
+    <rect x="4" y="16" width="36" height="8" rx="2" fill="#00adef"/>
+    <rect x="8" y="8" width="36" height="8" rx="2" fill="#5dd5f7"/>
+  </g>
+  <text x="132" y="48" text-anchor="middle" fill="#ffffff" font-family="Montserrat, Arial, sans-serif" font-size="26" font-weight="700">GEMARA</text>
+</svg>

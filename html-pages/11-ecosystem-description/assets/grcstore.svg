@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" role="img" aria-label="GRC.Store">
+  <rect width="240" height="80" rx="12" fill="#0a1628" stroke="#00adef" stroke-width="2"/>
+  <circle cx="42" cy="40" r="18" fill="none" stroke="#f5a623" stroke-width="3"/>
+  <text x="42" y="45" text-anchor="middle" fill="#f5a623" font-family="Montserrat, Arial, sans-serif" font-size="16" font-weight="800">G</text>
+  <text x="138" y="38" text-anchor="middle" fill="#ffffff" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="700">GRC</text>
+  <text x="138" y="58" text-anchor="middle" fill="#00e5ff" font-family="Montserrat, Arial, sans-serif" font-size="18" font-weight="600">.STORE</text>
+</svg>

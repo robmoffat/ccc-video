@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1920">
+  <title>Sample Card — FINOS CCC Brand</title>
+  <link rel="stylesheet" href="styles/presentation-brand.css">
+  <style>
+    /* Sample-card layout only — all colours & type use presentation-brand.css classes */
+    .sample-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto 1fr;
+    }
+
+    .sample-card__header {
+      grid-column: 1 / -1;
+      padding: 3rem 4rem 2.5rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .sample-card__header-text .text-caption-accent {
+      margin-bottom: 0.75rem;
+    }
+
+    .sample-card__header-text .text-body-muted {
+      margin-top: 1rem;
+      max-width: 48rem;
+    }
+
+    .sample-card__colors {
+      padding: 3rem 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .color-swatches {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      flex: 1;
+    }
+
+    .sample-card__typography {
+      padding: 3rem 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .type-specimen__label {
+      margin-bottom: 0.5rem;
+    }
+
+    .brand-panel {
+      margin-top: auto;
+      padding: 1.5rem;
+    }
+
+    .brand-panel__row {
+      margin-bottom: 0.75rem;
+    }
+
+    .brand-panel__row:last-child {
+      margin-bottom: 0;
+    }
+
+    .brand-panel__row .text-caption-cyan {
+      margin-bottom: 0.35rem;
+    }
+  </style>
+</head>
+<body class="theme-brand">
+  <div class="slide">
+    <article class="card sample-card bg-black">
+      <header class="sample-card__header brand-header">
+        <div class="brand-logo">
+          <img src="assets/2023_FinosCCC_Horizontal.png" alt="FINOS Common Cloud Controls">
+        </div>
+        <div class="sample-card__header-text">
+          <p class="text-caption-accent">Brand style reference</p>
+          <h1 class="text-display-white">Sample Card</h1>
+          <p class="text-body-muted font-body">
+            Dark-mode palette aligned with the FINOS CCC logo — black ground,
+            cyan accents, electric highlights, warm amber contrast, and white type.
+          </p>
+        </div>
+      </header>
+
+      <section class="sample-card__colors border-right-cyan-soft">
+        <p class="text-caption brand-section-label">Six brand colours</p>
+        <div class="color-swatches">
+          <div class="brand-swatch brand-swatch--black shadow-card">
+            <span class="brand-swatch__name">Black</span>
+            <span class="brand-swatch__hex text-label">#000000</span>
+          </div>
+          <div class="brand-swatch brand-swatch--cyan shadow-card">
+            <span class="brand-swatch__name">Cyan</span>
+            <span class="brand-swatch__hex text-label">#00adef</span>
+          </div>
+          <div class="brand-swatch brand-swatch--white shadow-card">
+            <span class="brand-swatch__name">White</span>
+            <span class="brand-swatch__hex text-label">#ffffff</span>
+          </div>
+          <div class="brand-swatch brand-swatch--gradient shadow-card">
+            <span class="brand-swatch__name">Cyan gradient</span>
+            <span class="brand-swatch__hex text-label">#5dd5f7 → #008cb8</span>
+          </div>
+          <div class="brand-swatch brand-swatch--accent shadow-card">
+            <span class="brand-swatch__name">Electric</span>
+            <span class="brand-swatch__hex text-label">#00e5ff</span>
+          </div>
+          <div class="brand-swatch brand-swatch--contrast shadow-card">
+            <span class="brand-swatch__name">Amber</span>
+            <span class="brand-swatch__hex text-label">#f5a623</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="sample-card__typography">
+        <p class="text-caption brand-section-label">Four text sizes</p>
+
+        <div class="brand-divider">
+          <p class="text-caption-cyan-deep type-specimen__label">Display · 4.5rem · Montserrat</p>
+          <p class="text-display text-white">Display size</p>
+        </div>
+
+        <div class="brand-divider">
+          <p class="text-caption-cyan-deep type-specimen__label">Heading · 2.25rem · Montserrat</p>
+          <p class="text-heading-contrast">Heading size</p>
+        </div>
+
+        <div class="brand-divider">
+          <p class="text-caption-cyan-deep type-specimen__label">Body · 1.375rem · Source Sans 3</p>
+          <p class="text-body text-body-color">Body text for explanations and supporting copy.</p>
+        </div>
+
+        <div class="brand-divider">
+          <p class="text-caption-cyan-deep type-specimen__label">Caption · 0.9375rem · Source Sans 3</p>
+          <p class="text-caption text-accent">Caption · labels · metadata</p>
+        </div>
+
+        <div class="brand-panel">
+          <p class="text-caption">Two font variations</p>
+          <div class="brand-panel__row">
+            <p class="text-caption-cyan">Montserrat — titles &amp; headings</p>
+            <p class="text-heading-white">Common Cloud Controls</p>
+          </div>
+          <div class="brand-panel__row">
+            <p class="text-caption-cyan">Source Sans 3 — body &amp; captions</p>
+            <p class="text-body-soft font-body">Shared security standards for cloud services.</p>
+          </div>
+        </div>
+      </section>
+    </article>
+  </div>
+</body>
+</html>
