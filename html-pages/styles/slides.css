@@ -18,6 +18,10 @@
   padding: 3.5rem 4rem;
 }
 
+.theme-brand .slide-layout--gemara {
+  justify-content: flex-start;
+}
+
 .theme-brand .slide-logo-center img {
   height: 200px;
   width: auto;
@@ -563,20 +567,26 @@
 
 .theme-brand .gemara-header {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 3rem;
+  gap: 1.5rem;
   margin-bottom: 2.5rem;
+  text-align: center;
 }
 
-.theme-brand .gemara-logo-badge {
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  border: 1px solid var(--color-border-cyan);
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--color-white);
+.theme-brand .gemara-header .brand-logo {
+  display: flex;
+  justify-content: center;
+}
+
+.theme-brand .gemara-header__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 36rem;
+  text-align: center;
 }
 
 .theme-brand .gemara-layers {
@@ -585,43 +595,41 @@
   gap: 0.75rem;
   width: 100%;
   padding: 0 2rem;
+  flex: 1;
+  align-content: center;
+  min-height: 0;
+}
+
+.theme-brand .gemara-tagline {
+  margin-top: auto;
+  padding-top: 2rem;
+  text-align: center;
 }
 
 .theme-brand .gemara-layer {
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--color-border-cyan);
   border-radius: 10px;
   overflow: hidden;
-  background: rgba(0, 173, 239, 0.05);
+  border-width: 1px;
+  border-style: solid;
+  text-align: center;
+  min-height: 18rem;
 }
 
 .theme-brand .gemara-layer__num {
-  background: var(--color-cyan);
-  color: var(--color-black);
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 800;
-  padding: 0.5rem;
-  text-align: center;
+  padding: 0.8rem 0.5rem;
 }
 
-.theme-brand .gemara-layer__title {
-  font-family: var(--font-display);
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--color-white);
-  padding: 0.75rem 0.5rem 0.25rem;
-  text-align: center;
-  line-height: 1.25;
+.theme-brand .gemara-layer p {
+  padding: 0 0.75rem;
+}
+
+.theme-brand .gemara-layer p:first-of-type {
+  padding-top: 1.2rem;
   flex: 1;
 }
 
-.theme-brand .gemara-layer__desc {
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  color: var(--color-body-muted);
-  padding: 0 0.5rem 0.75rem;
-  text-align: center;
-  line-height: 1.35;
+.theme-brand .gemara-layer p:last-of-type {
+  padding-bottom: 1.2rem;
 }
