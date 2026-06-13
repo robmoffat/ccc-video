@@ -195,8 +195,10 @@
 
 .theme-brand .three-sections__section {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
   padding: 2rem 4rem;
   border-bottom: 1px solid var(--color-border-cyan-soft);
 }
@@ -205,42 +207,81 @@
   border-bottom: none;
 }
 
+.theme-brand .build-section__title {
+  margin: 0;
+  text-align: left;
+  letter-spacing: 0.06em;
+  line-height: 1.15;
+  flex: 0 0 auto;
+  max-width: 24rem;
+}
+
+.theme-brand .three-sections__section .arch-logo-grid {
+  grid-column: auto;
+  justify-content: flex-end;
+  flex: 1;
+  min-width: 0;
+}
+
 .theme-brand .flow-row {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
+  gap: 2rem;
+  flex-wrap: nowrap;
   width: 100%;
+  max-width: 1720px;
 }
 
 .theme-brand .flow-box {
-  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.75rem;
+  padding: 2.75rem 2rem;
   border-radius: 12px;
-  border: 1px solid var(--color-border-cyan);
-  background: var(--color-panel-cyan);
-  min-width: 200px;
+  border-width: 1px;
+  border-style: solid;
+  flex: 1;
+  min-width: 0;
+  min-height: 20rem;
   text-align: center;
 }
 
-.theme-brand .flow-box__title {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--color-white);
-}
-
-.theme-brand .flow-box__sub {
-  font-family: var(--font-body);
-  font-size: 1rem;
-  color: var(--color-body-muted);
-  margin-top: 0.35rem;
+.theme-brand .flow-box__icon {
+  height: 6.5rem;
+  width: auto;
+  display: block;
 }
 
 .theme-brand .flow-arrow {
-  font-size: 2.5rem;
-  color: var(--color-cyan);
+  font-size: 4rem;
   line-height: 1;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.theme-brand .slide-layout--ai {
+  gap: 3rem;
+  padding: 3rem 3.5rem;
+}
+
+.theme-brand .slide-ai__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.theme-brand .slide-ai__logo {
+  height: 28rem;
+  width: auto;
+  display: block;
+}
+
+.theme-brand .slide-ai__caption {
+  margin: 0;
 }
 
 .theme-brand .arch-split {
