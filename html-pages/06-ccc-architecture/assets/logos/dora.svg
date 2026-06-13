@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" role="img" aria-label="DORA">
+  <rect width="120" height="40" rx="6" fill="#003399"/>
+  <circle cx="22" cy="20" r="10" fill="none" stroke="#ffcc00" stroke-width="1.5"/>
+  <text x="68" y="26" text-anchor="middle" fill="#ffffff" font-family="Arial,sans-serif" font-size="14" font-weight="800">DORA</text>
+</svg>

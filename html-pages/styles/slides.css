@@ -241,7 +241,7 @@
 
 .theme-brand .arch-split {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 8fr 2fr;
   gap: 0;
   height: 100%;
   padding: 0;
@@ -257,50 +257,26 @@
 }
 
 .theme-brand .arch-panel--left {
-  border-right: 2px solid var(--color-border-cyan);
   background: rgba(0, 173, 239, 0.04);
+  padding: 1rem 1rem 1rem 0.75rem;
+  justify-content: flex-start;
+  min-width: 0;
+}
+
+.theme-brand .arch-panel--left .arch-panel__title {
+  margin-bottom: 0.75rem;
 }
 
 .theme-brand .arch-panel--right {
   background: rgba(0, 173, 239, 0.08);
+  padding: 2rem 1.25rem;
+  min-width: 0;
+  justify-content: stretch;
 }
 
-.theme-brand .arch-panel__title {
-  margin-bottom: 2.5rem;
-}
-
-.theme-brand .arch-panel--right .arch-panel__title {
-  text-align: center;
-}
-
-.theme-brand .arch-inputs {
-  display: flex;
-  flex-direction: column;
-  gap: 1.75rem;
-}
-
-.theme-brand .arch-input {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  padding: 1rem 1.25rem;
-  border-radius: 10px;
-  border: 1px solid var(--color-border-cyan-soft);
-  background: rgba(0, 0, 0, 0.35);
-}
-
-.theme-brand .arch-input__icon {
-  font-size: 2rem;
-  width: 3rem;
-  text-align: center;
-  flex-shrink: 0;
-}
-
-.theme-brand .arch-input__label {
-  font-family: var(--font-display);
-  font-size: 1.375rem;
-  font-weight: 600;
-  color: var(--color-white);
+.theme-brand .arch-panel--right .layer-stack {
+  flex: 1;
+  min-height: 0;
 }
 
 .theme-brand .layer-stack {
@@ -308,20 +284,145 @@
   flex-direction: column;
   gap: 0;
   width: 100%;
-  max-width: 520px;
+  max-width: 100%;
+  height: 100%;
   margin: 0 auto;
 }
 
 .theme-brand .layer-stack__item {
-  padding: 1.1rem 1.5rem;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 0.75rem;
   border: 1px solid var(--color-border-cyan);
   border-bottom: none;
   background: rgba(0, 173, 239, 0.06);
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: var(--text-heading);
   font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
   color: var(--color-white);
   text-align: center;
+}
+
+.theme-brand .layer-stack__icon {
+  width: 88px;
+  height: 88px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.theme-brand .layer-stack__label {
+  text-align: center;
+  max-width: 100%;
+}
+
+.theme-brand .arch-source-columns {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+  justify-content: center;
+  min-height: 0;
+}
+
+.theme-brand .arch-source-box {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid var(--color-border-cyan-soft);
+  border-radius: 10px;
+  padding: 0.75rem 0.75rem 0.75rem 0.5rem;
+  background: rgba(0, 0, 0, 0.35);
+  min-height: 0;
+}
+
+.theme-brand .arch-source-box__title {
+  grid-column: 1;
+  margin: 0;
+  text-align: center;
+  line-height: 1.1;
+  justify-self: center;
+  align-self: center;
+  transform: rotate(-90deg);
+  transform-origin: center center;
+}
+
+.theme-brand .arch-logo-grid {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 0.75rem 1rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.theme-brand .arch-logo-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.65rem;
+  flex: 0 0 auto;
+}
+
+.theme-brand .arch-logo-chip__mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 110px;
+  min-width: 180px;
+  padding: 0.5rem 1rem;
+}
+
+.theme-brand .arch-logo-chip__mark--light,
+.theme-brand .arch-logo-chip__mark--dark,
+.theme-brand .arch-logo-chip__mark--eu {
+  border-radius: 10px;
+  padding: 0.5rem 1.25rem;
+}
+
+.theme-brand .arch-logo-chip__mark--light {
+  background: var(--color-white);
+}
+
+.theme-brand .arch-logo-chip__mark--dark {
+  background: rgba(0, 0, 0, 0.92);
+}
+
+.theme-brand .arch-logo-chip__mark--eu {
+  background: #003399;
+}
+
+.theme-brand .arch-logo-chip__mark--grey {
+  border-radius: 10px;
+  background: rgb(230, 230, 230);
+  padding: 0.5rem 1.25rem;
+}
+
+.theme-brand .arch-logo-chip img {
+  max-height: 90px;
+  max-width: 250px;
+  width: auto;
+  object-fit: contain;
+}
+
+.theme-brand .arch-logo-chip img.arch-logo-chip__img--wide {
+  max-height: 70px;
+  max-width: 300px;
+}
+
+.theme-brand .arch-panel--right .arch-panel__title {
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
 .theme-brand .layer-stack__item:first-child {
@@ -331,6 +432,9 @@
 .theme-brand .layer-stack__item:last-child {
   border-bottom: 1px solid var(--color-border-cyan);
   border-radius: 0 0 12px 12px;
+}
+
+.theme-brand .layer-stack__item--base {
   background: var(--color-panel-cyan);
 }
 
