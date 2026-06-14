@@ -9,7 +9,7 @@
 </head>
 <body class="theme-brand">
   <div class="slide">
-    <article class="card arch-split bg-black">
+    <article class="card arch-split arch-split--animated bg-black">
       <section class="arch-panel arch-panel--left">
         <div class="arch-source-columns">
           <div class="arch-source-box">
@@ -127,7 +127,82 @@
           </div>
         </div>
       </section>
+      <audio class="arch-split__audio" src="01-ccc-description  .mp3" preload="auto"></audio>
     </article>
   </div>
+  <script>
+    (function () {
+      var slide = document.querySelector('.arch-split--animated');
+      if (!slide) return;
+
+      var audio = slide.querySelector('.arch-split__audio');
+      var chips = Array.prototype.slice.call(
+        slide.querySelectorAll('.arch-panel--left .arch-logo-chip')
+      );
+
+      function parseSeconds(value) {
+        return parseFloat(value) * 1000;
+      }
+
+      function getArchTiming() {
+        var styles = getComputedStyle(slide);
+        return {
+          iconStart: parseSeconds(styles.getPropertyValue('--arch-icon-phase-start').trim() || '13s'),
+          iconPhase: parseSeconds(styles.getPropertyValue('--arch-icon-phase').trim() || '5s')
+        };
+      }
+
+      function shuffle(items) {
+        var shuffled = items.slice();
+
+        for (var i = shuffled.length - 1; i > 0; i -= 1) {
+          var j = Math.floor(Math.random() * (i + 1));
+          var temp = shuffled[i];
+          shuffled[i] = shuffled[j];
+          shuffled[j] = temp;
+        }
+
+        return shuffled;
+      }
+
+      function resetChips() {
+        chips.forEach(function (chip) {
+          chip.classList.remove('is-revealed');
+          chip.style.animationDelay = '';
+        });
+      }
+
+      function play() {
+        var timing = getArchTiming();
+        var orderedChips = shuffle(chips);
+        var iconStep = timing.iconPhase / orderedChips.length;
+
+        resetChips();
+        slide.classList.remove('is-playing');
+        void slide.offsetWidth;
+        slide.classList.add('is-playing');
+
+        orderedChips.forEach(function (chip, index) {
+          chip.classList.add('is-revealed');
+          chip.style.animationDelay = (timing.iconStart + index * iconStep) + 'ms';
+        });
+
+        if (audio) {
+          audio.currentTime = 0;
+          audio.play();
+        }
+      }
+
+      if (new URLSearchParams(window.location.search).has('autoplay')) {
+        play();
+      }
+
+      window.addEventListener('click', play);
+      window.addEventListener('keydown', function (event) {
+        if (event.repeat) return;
+        play();
+      });
+    })();
+  </script>
 </body>
 </html>

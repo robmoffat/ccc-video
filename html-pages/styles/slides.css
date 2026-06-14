@@ -593,6 +593,77 @@
   margin: 0;
 }
 
+.theme-brand .slide-layout--ai-animated {
+  --ai-box-phase-start: 1s;
+  --ai-box-interval: 0.75s;
+  --ai-reveal-duration: 0.6s;
+}
+
+.theme-brand .slide-layout--ai-animated .slide-ai__caption,
+.theme-brand .slide-layout--ai-animated .flow-row > * {
+  opacity: 0;
+}
+
+.theme-brand .slide-layout--ai-animated.is-playing .slide-ai__caption {
+  animation: problem-reveal-fade-in var(--ai-reveal-duration) ease-out forwards;
+  animation-delay: 0s;
+}
+
+.theme-brand .slide-layout--ai-animated.is-playing .flow-row > * {
+  animation: problem-reveal-fade-in var(--ai-reveal-duration) ease-out forwards;
+  animation-delay: calc(var(--ai-box-phase-start) + var(--ai-reveal-step, 0) * var(--ai-box-interval));
+}
+
+.theme-brand .slide-layout--ai-animated.is-playing .flow-row > :nth-child(1) {
+  --ai-reveal-step: 0;
+}
+
+.theme-brand .slide-layout--ai-animated.is-playing .flow-row > :nth-child(2),
+.theme-brand .slide-layout--ai-animated.is-playing .flow-row > :nth-child(3) {
+  --ai-reveal-step: 1;
+}
+
+.theme-brand .slide-layout--ai-animated.is-playing .flow-row > :nth-child(4),
+.theme-brand .slide-layout--ai-animated.is-playing .flow-row > :nth-child(5) {
+  --ai-reveal-step: 2;
+}
+
+.theme-brand .slide-layout--ai-animated.is-playing .flow-row > :nth-child(6),
+.theme-brand .slide-layout--ai-animated.is-playing .flow-row > :nth-child(7) {
+  --ai-reveal-step: 3;
+}
+
+.theme-brand .slide-ai__audio {
+  display: none;
+}
+
+.theme-brand .slide-layout--intro-ccc .slide-logo-large {
+  opacity: 0;
+}
+
+.theme-brand .slide-layout--intro-ccc.is-playing .slide-logo-large {
+  animation: problem-reveal-fade-in 1s ease-out forwards;
+}
+
+.theme-brand .intro-ccc__audio {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-brand .slide-layout--intro-ccc .slide-logo-large {
+    opacity: 1;
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-brand .slide-layout--ai-animated .slide-ai__caption,
+  .theme-brand .slide-layout--ai-animated .flow-row > * {
+    opacity: 1;
+    animation: none;
+  }
+}
+
 .theme-brand .arch-split {
   display: grid;
   grid-template-columns: 8fr 2fr;
@@ -600,6 +671,78 @@
   height: 100%;
   padding: 0;
   align-items: stretch;
+}
+
+.theme-brand .arch-split--animated {
+  --arch-layer-phase-start: 2s;
+  --arch-layer-interval: 2s;
+  --arch-label-phase-start: 10s;
+  --arch-label-interval: 1s;
+  --arch-icon-phase-start: 13s;
+  --arch-icon-phase: 5s;
+  --arch-reveal-duration: 0.6s;
+}
+
+.theme-brand .arch-split--animated .layer-stack__item,
+.theme-brand .arch-split--animated .arch-source-box__title,
+.theme-brand .arch-split--animated .arch-panel--left .arch-logo-chip {
+  opacity: 0;
+}
+
+.theme-brand .arch-split--animated.is-playing .layer-stack__item {
+  animation: problem-reveal-fade-in var(--arch-reveal-duration) ease-out forwards;
+  animation-delay: calc(var(--arch-layer-phase-start) + var(--arch-layer-step, 0) * var(--arch-layer-interval));
+}
+
+.theme-brand .arch-split--animated.is-playing .layer-stack__item:nth-child(1) {
+  --arch-layer-step: 0;
+}
+
+.theme-brand .arch-split--animated.is-playing .layer-stack__item:nth-child(2) {
+  --arch-layer-step: 1;
+}
+
+.theme-brand .arch-split--animated.is-playing .layer-stack__item:nth-child(3) {
+  --arch-layer-step: 2;
+}
+
+.theme-brand .arch-split--animated.is-playing .layer-stack__item:nth-child(4) {
+  --arch-layer-step: 3;
+}
+
+.theme-brand .arch-split--animated.is-playing .arch-source-box__title {
+  animation: problem-reveal-fade-in var(--arch-reveal-duration) ease-out forwards;
+  animation-delay: calc(var(--arch-label-phase-start) + var(--arch-label-step, 0) * var(--arch-label-interval));
+}
+
+.theme-brand .arch-split--animated.is-playing .arch-source-box:nth-child(1) .arch-source-box__title {
+  --arch-label-step: 0;
+}
+
+.theme-brand .arch-split--animated.is-playing .arch-source-box:nth-child(2) .arch-source-box__title {
+  --arch-label-step: 1;
+}
+
+.theme-brand .arch-split--animated.is-playing .arch-source-box:nth-child(3) .arch-source-box__title {
+  --arch-label-step: 2;
+}
+
+.theme-brand .arch-split--animated.is-playing .arch-panel--left .arch-logo-chip.is-revealed {
+  animation: build-icon-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.theme-brand .arch-split__audio {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-brand .arch-split--animated .layer-stack__item,
+  .theme-brand .arch-split--animated .arch-source-box__title,
+  .theme-brand .arch-split--animated .arch-panel--left .arch-logo-chip {
+    opacity: 1;
+    animation: none;
+    transform: none;
+  }
 }
 
 .theme-brand .arch-panel {
