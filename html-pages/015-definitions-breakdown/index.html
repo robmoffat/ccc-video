@@ -23,6 +23,7 @@
       <audio class="definitions-breakdown__audio" src="7.2.mp3" preload="auto"></audio>
     </article>
   </div>
+  <script src="../scripts/presentation.js"></script>
   <script>
     (function () {
       var slide = document.querySelector('.slide-layout--definitions-breakdown');
@@ -47,16 +48,7 @@
           audio.play();
         }
       }
-
-      if (new URLSearchParams(window.location.search).has('autoplay')) {
-        play();
-      }
-
-      window.addEventListener('click', play);
-      window.addEventListener('keydown', function (event) {
-        if (event.repeat) return;
-        play();
-      });
+      Presentation.register({ play: play, audio: audio });
     })();
   </script>
 </body>

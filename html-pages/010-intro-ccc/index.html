@@ -16,6 +16,7 @@
       <audio class="intro-ccc__audio" src="00-title-card.mp3" preload="auto"></audio>
     </article>
   </div>
+  <script src="../scripts/presentation.js"></script>
   <script>
     (function () {
       var slide = document.querySelector('.slide-layout--intro-ccc');
@@ -33,16 +34,7 @@
           audio.play();
         }
       }
-
-      if (new URLSearchParams(window.location.search).has('autoplay')) {
-        play();
-      }
-
-      window.addEventListener('click', play);
-      window.addEventListener('keydown', function (event) {
-        if (event.repeat) return;
-        play();
-      });
+      Presentation.register({ play: play, audio: audio });
     })();
   </script>
 </body>

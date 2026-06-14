@@ -649,6 +649,11 @@
   display: none;
 }
 
+.theme-brand .title-card__audio,
+.theme-brand .problem__audio {
+  display: none;
+}
+
 .theme-brand .slide-layout--step-reveal .slide-step-label,
 .theme-brand .slide-layout--step-reveal .slide-title {
   opacity: 0;

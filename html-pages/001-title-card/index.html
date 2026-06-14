@@ -9,11 +9,34 @@
 </head>
 <body class="theme-brand">
   <div class="slide">
-    <article class="card slide-layout slide-layout--center bg-black">
+    <article class="card slide-layout slide-layout--center slide-layout--intro-ccc bg-black">
       <div class="slide-logo-large">
         <img src="../assets/2023_FinosCCC_Horizontal.png" alt="FINOS Common Cloud Controls">
       </div>
+      <audio class="title-card__audio" src="001-title-card.mp3" preload="auto"></audio>
     </article>
   </div>
+  <script src="../scripts/presentation.js"></script>
+  <script>
+    (function () {
+      var slide = document.querySelector('.slide-layout--intro-ccc');
+      if (!slide) return;
+
+      var audio = slide.querySelector('.title-card__audio');
+
+      function play() {
+        slide.classList.remove('is-playing');
+        void slide.offsetWidth;
+        slide.classList.add('is-playing');
+
+        if (audio) {
+          audio.currentTime = 0;
+          audio.play();
+        }
+      }
+
+      Presentation.register({ play: play, audio: audio });
+    })();
+  </script>
 </body>
 </html>

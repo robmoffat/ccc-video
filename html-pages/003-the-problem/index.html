@@ -124,28 +124,29 @@
           <p class="equation__result">Thousands of Security &amp; Compliance Questions</p>
         </div>
       </div>
+      <audio class="problem__audio" src="03-plethora-of-csps-people.mp3" preload="auto"></audio>
     </article>
   </div>
+  <script src="../scripts/presentation.js"></script>
   <script>
     (function () {
       var slide = document.querySelector('.slide-layout--problem');
       if (!slide) return;
 
+      var audio = slide.querySelector('.problem__audio');
+
       function play() {
         slide.classList.remove('is-playing');
         void slide.offsetWidth;
         slide.classList.add('is-playing');
+
+        if (audio) {
+          audio.currentTime = 0;
+          audio.play();
+        }
       }
 
-      if (new URLSearchParams(window.location.search).has('autoplay')) {
-        play();
-      }
-
-      window.addEventListener('click', play);
-      window.addEventListener('keydown', function (event) {
-        if (event.repeat) return;
-        play();
-      });
+      Presentation.register({ play: play, audio: audio });
     })();
   </script>
 </body>
