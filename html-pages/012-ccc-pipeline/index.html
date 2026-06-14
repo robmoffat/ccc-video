@@ -9,7 +9,7 @@
 </head>
 <body class="theme-brand">
   <div class="slide">
-    <article class="card pipeline bg-black">
+    <article class="card pipeline pipeline--animated bg-black">
       <div class="pipeline__node pipeline__node--main">
         <p class="pipeline__node-title">CCC</p>
         <p class="pipeline__node-sub">Capabilities • Threats • Controls • Assessment Requirements</p>
@@ -37,7 +37,37 @@
           </div>
         </div>
       </div>
+      <audio class="pipeline__audio" src="5.mp3" preload="auto"></audio>
     </article>
   </div>
+  <script>
+    (function () {
+      var slide = document.querySelector('.pipeline--animated');
+      if (!slide) return;
+
+      var audio = slide.querySelector('.pipeline__audio');
+
+      function play() {
+        slide.classList.remove('is-playing');
+        void slide.offsetWidth;
+        slide.classList.add('is-playing');
+
+        if (audio) {
+          audio.currentTime = 0;
+          audio.play();
+        }
+      }
+
+      if (new URLSearchParams(window.location.search).has('autoplay')) {
+        play();
+      }
+
+      window.addEventListener('click', play);
+      window.addEventListener('keydown', function (event) {
+        if (event.repeat) return;
+        play();
+      });
+    })();
+  </script>
 </body>
 </html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1920">
+  <title>15. Definitions Breakdown</title>
+  <link rel="stylesheet" href="../styles/presentation-brand.css">
+  <link rel="stylesheet" href="../styles/slides.css">
+</head>
+<body class="theme-brand">
+  <div class="slide">
+    <article class="card slide-layout slide-layout--definitions-breakdown bg-black">
+      <p class="slide-url">ccc.finos.org</p>
+      <div class="definitions-breakdown__video-wrap">
+        <video
+          class="definitions-breakdown__video"
+          src="CCC-Use-The-Definitions.mp4"
+          muted
+          playsinline
+          preload="auto"
+        ></video>
+      </div>
+      <audio class="definitions-breakdown__audio" src="7.2.mp3" preload="auto"></audio>
+    </article>
+  </div>
+  <script>
+    (function () {
+      var slide = document.querySelector('.slide-layout--definitions-breakdown');
+      if (!slide) return;
+
+      var video = slide.querySelector('.definitions-breakdown__video');
+      var audio = slide.querySelector('.definitions-breakdown__audio');
+
+      function play() {
+        slide.classList.remove('is-playing');
+        void slide.offsetWidth;
+        slide.classList.add('is-playing');
+
+        if (video) {
+          video.pause();
+          video.currentTime = 0;
+          video.play();
+        }
+
+        if (audio) {
+          audio.currentTime = 0;
+          audio.play();
+        }
+      }
+
+      if (new URLSearchParams(window.location.search).has('autoplay')) {
+        play();
+      }
+
+      window.addEventListener('click', play);
+      window.addEventListener('keydown', function (event) {
+        if (event.repeat) return;
+        play();
+      });
+    })();
+  </script>
+</body>
+</html>
