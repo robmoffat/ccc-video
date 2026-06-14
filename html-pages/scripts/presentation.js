@@ -25,6 +25,9 @@
   ];
 
   var advanceTimeout = null;
+  var fadeTimeout = null;
+  var FADE_OUT = 1 / 3;
+  var audioTimeUpdateHandler = null;
 
   function slideUrl(id) {
     return '../' + id + '/index.html';
@@ -65,6 +68,25 @@
       clearTimeout(advanceTimeout);
       advanceTimeout = null;
     }
+
+    if (fadeTimeout) {
+      clearTimeout(fadeTimeout);
+      fadeTimeout = null;
+    }
+
+    if (audioTimeUpdateHandler) {
+      var audio = document.querySelector('audio');
+      if (audio) {
+        audio.removeEventListener('timeupdate', audioTimeUpdateHandler);
+      }
+      audioTimeUpdateHandler = null;
+    }
+
+    document.documentElement.classList.remove('presentation-exiting');
+  }
+
+  function startFadeOut() {
+    document.documentElement.classList.add('presentation-exiting');
   }
 
   function goToNext() {
@@ -79,6 +101,19 @@
     clearAdvance();
 
     if (audio) {
+      audioTimeUpdateHandler = function () {
+        if (!isFinite(audio.duration) || audio.duration <= FADE_OUT) {
+          return;
+        }
+
+        if (audio.currentTime >= audio.duration - FADE_OUT) {
+          startFadeOut();
+          audio.removeEventListener('timeupdate', audioTimeUpdateHandler);
+          audioTimeUpdateHandler = null;
+        }
+      };
+
+      audio.addEventListener('timeupdate', audioTimeUpdateHandler);
       audio.removeEventListener('ended', goToNext);
       audio.addEventListener('ended', goToNext, { once: true });
       return;
@@ -92,6 +127,9 @@
     }
 
     if (duration) {
+      var fadeDelay = Math.max(0, duration - FADE_OUT) * 1000;
+
+      fadeTimeout = setTimeout(startFadeOut, fadeDelay);
       advanceTimeout = setTimeout(goToNext, duration * 1000);
     }
   }
@@ -128,6 +166,8 @@
     var audio = options.audio || document.querySelector('audio');
     var duration = options.duration;
     var started = false;
+
+    clearAdvance();
 
     function run() {
       if (started) {

@@ -15,13 +15,13 @@
           <p class="text-heading text-white problem-factor__label">Multiple Providers</p>
           <div class="problem-factor__icons problem-factor__icons--csp">
             <div class="problem-factor__csp-mark problem-factor__csp-mark--dark">
-              <img src="../06-ccc-architecture/assets/logos/aws.png" alt="AWS">
+              <img src="../011-ccc-architecture/assets/logos/aws.png" alt="AWS">
             </div>
             <div class="problem-factor__csp-mark">
-              <img src="../06-ccc-architecture/assets/logos/azure.png" alt="Azure">
+              <img src="../011-ccc-architecture/assets/logos/azure.png" alt="Azure">
             </div>
             <div class="problem-factor__csp-mark problem-factor__csp-mark--dark">
-              <img src="../06-ccc-architecture/assets/logos/my-versions/gcp.png" alt="Google Cloud">
+              <img src="../011-ccc-architecture/assets/logos/my-versions/gcp.png" alt="Google Cloud">
             </div>
             <div class="problem-factor__csp-mark">
               <img src="assets/csp/oracle.svg" alt="Oracle">
@@ -134,11 +134,65 @@
       if (!slide) return;
 
       var audio = slide.querySelector('.problem__audio');
+      var popGroups = [
+        { selector: '.problem-factor__csp-mark', step: 0 },
+        { selector: '.problem-factor__service-mark', step: 1 },
+        { selector: '.problem-factor__firm-mark', step: 2 },
+        { selector: '.problem-factor__icons--jurisdictions .icon-chip', step: 3 }
+      ];
+
+      function shuffle(items) {
+        var shuffled = Array.prototype.slice.call(items);
+
+        for (var i = shuffled.length - 1; i > 0; i -= 1) {
+          var j = Math.floor(Math.random() * (i + 1));
+          var temp = shuffled[i];
+          shuffled[i] = shuffled[j];
+          shuffled[j] = temp;
+        }
+
+        return shuffled;
+      }
+
+      function getTiming() {
+        var styles = getComputedStyle(slide);
+        return {
+          revealPause: parseFloat(styles.getPropertyValue('--problem-reveal-pause').trim() || '2') * 1000,
+          popPhase: parseFloat(styles.getPropertyValue('--problem-csp-pop-phase').trim() || '2') * 1000
+        };
+      }
+
+      function resetPopIcons() {
+        popGroups.forEach(function (group) {
+          slide.querySelectorAll(group.selector).forEach(function (mark) {
+            mark.classList.remove('is-revealed');
+            mark.style.animationDelay = '';
+          });
+        });
+      }
+
+      function popIcons() {
+        var timing = getTiming();
+
+        popGroups.forEach(function (group) {
+          var marks = slide.querySelectorAll(group.selector);
+          var startAt = group.step * timing.revealPause;
+          var ordered = shuffle(marks);
+          var step = timing.popPhase / ordered.length;
+
+          ordered.forEach(function (mark, index) {
+            mark.classList.add('is-revealed');
+            mark.style.animationDelay = (startAt + index * step) + 'ms';
+          });
+        });
+      }
 
       function play() {
+        resetPopIcons();
         slide.classList.remove('is-playing');
         void slide.offsetWidth;
         slide.classList.add('is-playing');
+        popIcons();
 
         if (audio) {
           audio.currentTime = 0;

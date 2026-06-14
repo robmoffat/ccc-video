@@ -1,5 +1,13 @@
 /* Shared slide layouts — use with presentation-brand.css */
 
+.theme-brand .slide {
+  transition: opacity 0.333s ease-out;
+}
+
+html.presentation-exiting .theme-brand .slide {
+  opacity: 0;
+}
+
 .theme-brand .slide-layout {
   width: 100%;
   height: 100%;
@@ -199,6 +207,7 @@
   min-height: 0;
   --problem-reveal-pause: 2s;
   --problem-reveal-duration: 0.9s;
+  --problem-csp-pop-phase: 2s;
 }
 
 .theme-brand .problem-factors {
@@ -288,6 +297,20 @@
   max-width: 8rem;
   width: auto;
   object-fit: contain;
+}
+
+.theme-brand .slide-layout--problem .problem-factor__csp-mark,
+.theme-brand .slide-layout--problem .problem-factor__service-mark,
+.theme-brand .slide-layout--problem .problem-factor__firm-mark,
+.theme-brand .slide-layout--problem .problem-factor__icons--jurisdictions .icon-chip {
+  opacity: 0;
+}
+
+.theme-brand .slide-layout--problem.is-playing .problem-factor__csp-mark.is-revealed,
+.theme-brand .slide-layout--problem.is-playing .problem-factor__service-mark.is-revealed,
+.theme-brand .slide-layout--problem.is-playing .problem-factor__firm-mark.is-revealed,
+.theme-brand .slide-layout--problem.is-playing .problem-factor__icons--jurisdictions .icon-chip.is-revealed {
+  animation: build-icon-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
 .theme-brand .problem-factor__services-wrap,
@@ -437,6 +460,15 @@
     opacity: 1;
     animation: none;
   }
+
+  .theme-brand .slide-layout--problem .problem-factor__csp-mark,
+  .theme-brand .slide-layout--problem .problem-factor__service-mark,
+  .theme-brand .slide-layout--problem .problem-factor__firm-mark,
+  .theme-brand .slide-layout--problem .problem-factor__icons--jurisdictions .icon-chip {
+    opacity: 1;
+    animation: none;
+    transform: none;
+  }
 }
 
 .theme-brand .three-sections {
@@ -466,7 +498,8 @@
   letter-spacing: 0.06em;
   line-height: 1.15;
   flex: 0 0 auto;
-  max-width: 24rem;
+  max-width: 30rem;
+  color: var(--color-accent);
 }
 
 .theme-brand .three-sections--animated {
@@ -666,6 +699,18 @@
 
 .theme-brand .step-reveal__audio {
   display: none;
+}
+
+.theme-brand .slide-layout--step-reveal:has(.step-reveal__url) {
+  position: relative;
+}
+
+.theme-brand .slide-layout--step-reveal .step-reveal__url {
+  position: absolute;
+  bottom: 3rem;
+  left: 0;
+  right: 0;
+  font-size: 2.5rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1240,6 +1285,13 @@
   text-align: center;
 }
 
+.theme-brand .gemara__url {
+  flex-shrink: 0;
+  margin-top: 1rem;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
 .theme-brand .gemara-layer {
   display: flex;
   flex-direction: column;
@@ -1275,6 +1327,10 @@
   --triptych-reveal-start: 2s;
   --triptych-reveal-pause: 2s;
   --triptych-reveal-duration: 0.9s;
+}
+
+.theme-brand .slide-layout--triptych-quick-start {
+  --triptych-reveal-start: 0s;
 }
 
 .theme-brand .triptych {
@@ -1339,6 +1395,10 @@
   padding: 2rem 2.5rem;
   --video-reveal-start: 2s;
   --video-reveal-duration: 0.9s;
+}
+
+.theme-brand .slide-layout--video-reveal-quick-start {
+  --video-reveal-start: 0s;
 }
 
 .theme-brand .video-reveal {
@@ -1439,6 +1499,12 @@
   height: auto;
   object-fit: contain;
   background: var(--color-black);
+}
+
+.theme-brand .definitions-breakdown__url {
+  flex-shrink: 0;
+  margin-top: auto;
+  font-size: 2.5rem;
 }
 
 .theme-brand .definitions-breakdown__audio {
