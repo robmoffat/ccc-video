@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1920">
+  <title>2. Spinning News</title>
+  <link rel="stylesheet" href="../styles/presentation-brand.css">
+  <link rel="stylesheet" href="../styles/slides.css">
+</head>
+<body class="theme-brand">
+  <div class="slide">
+    <article class="card slide-layout slide-layout--triptych bg-black">
+      <div class="triptych" role="group" aria-label="News clips">
+        <div class="triptych__frame">
+          <video class="triptych__panel" src="1-hacker.mp4" muted playsinline loop preload="auto"></video>
+        </div>
+        <div class="triptych__frame">
+          <video class="triptych__panel" src="2-technique.mp4" muted playsinline loop preload="auto"></video>
+        </div>
+        <div class="triptych__frame">
+          <video class="triptych__panel" src="3-cves.mp4" muted playsinline loop preload="auto"></video>
+        </div>
+      </div>
+      <audio class="triptych__audio" src="002-spinning-news.mp3" preload="auto"></audio>
+    </article>
+  </div>
+  <script>
+    (function () {
+      var slide = document.querySelector('.slide-layout--triptych');
+      if (!slide) return;
+
+      var videos = slide.querySelectorAll('.triptych__panel');
+      var audio = slide.querySelector('.triptych__audio');
+      var timeouts = [];
+
+      function parseSeconds(value) {
+        return parseFloat(value) * 1000;
+      }
+
+      function getRevealTiming() {
+        var styles = getComputedStyle(slide);
+        return {
+          start: parseSeconds(styles.getPropertyValue('--triptych-reveal-start').trim() || '2s'),
+          pause: parseSeconds(styles.getPropertyValue('--triptych-reveal-pause').trim() || '2s')
+        };
+      }
+
+      function clearScheduled() {
+        timeouts.forEach(clearTimeout);
+        timeouts = [];
+      }
+
+      function play() {
+        clearScheduled();
+        slide.classList.remove('is-playing');
+        void slide.offsetWidth;
+        slide.classList.add('is-playing');
+
+        var timing = getRevealTiming();
+
+        videos.forEach(function (video) {
+          video.pause();
+          video.currentTime = 0;
+        });
+
+        videos.forEach(function (video, index) {
+          var delay = timing.start + index * timing.pause;
+          timeouts.push(setTimeout(function () {
+            video.currentTime = 0;
+            video.play();
+          }, delay));
+        });
+
+        if (audio) {
+          audio.currentTime = 0;
+          audio.play();
+        }
+      }
+
+      if (new URLSearchParams(window.location.search).has('autoplay')) {
+        play();
+      }
+
+      window.addEventListener('click', play);
+      window.addEventListener('keydown', function (event) {
+        if (event.repeat) return;
+        play();
+      });
+    })();
+  </script>
+</body>
+</html>
