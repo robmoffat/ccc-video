@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" role="img" aria-label="Azure Policy">
+  <rect width="240" height="80" rx="12" fill="#0a1628" stroke="#00adef" stroke-width="2"/>
+  <path d="M22 58 L42 18 L62 58 Z" fill="#0078d4"/>
+  <path d="M42 18 L62 58 L82 58 L62 18 Z" fill="#50e6ff" opacity="0.9"/>
+  <rect x="118" y="22" width="104" height="36" rx="8" fill="none" stroke="#00e5ff" stroke-width="2"/>
+  <text x="170" y="46" text-anchor="middle" fill="#ffffff" font-family="Montserrat, Arial, sans-serif" font-size="18" font-weight="700">POLICY</text>
+</svg>

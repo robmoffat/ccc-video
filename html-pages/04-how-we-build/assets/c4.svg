@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" role="img" aria-label="C4 Model">
-  <rect width="240" height="80" rx="12" fill="#ffffff"/>
-  <rect x="24" y="22" width="36" height="36" rx="4" fill="none" stroke="#1168bd" stroke-width="3"/>
-  <rect x="34" y="32" width="16" height="16" rx="2" fill="#1168bd"/>
-  <text x="138" y="48" text-anchor="middle" fill="#1168bd" font-family="Montserrat, Arial, sans-serif" font-size="34" font-weight="800">C4</text>
-</svg>

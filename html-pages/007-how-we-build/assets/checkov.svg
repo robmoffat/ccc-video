@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" role="img" aria-label="Checkov">
+  <rect width="240" height="80" rx="12" fill="#ffffff"/>
+  <circle cx="40" cy="40" r="18" fill="none" stroke="#5c4ee5" stroke-width="4"/>
+  <path d="M32 40 L38 46 L50 34" fill="none" stroke="#5c4ee5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="138" y="48" text-anchor="middle" fill="#141414" font-family="Montserrat, Arial, sans-serif" font-size="28" font-weight="800">CHECKOV</text>
+</svg>

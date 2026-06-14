@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" role="img" aria-label="AIGF">
+  <rect width="120" height="40" rx="6" fill="#0a1628" stroke="#00adef" stroke-width="1"/>
+  <text x="60" y="17" text-anchor="middle" fill="#00adef" font-family="Arial,sans-serif" font-size="9" font-weight="700">FINOS</text>
+  <text x="60" y="31" text-anchor="middle" fill="#ffffff" font-family="Arial,sans-serif" font-size="13" font-weight="800">AIGF</text>
+</svg>
