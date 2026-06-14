@@ -9,10 +9,40 @@
 </head>
 <body class="theme-brand">
   <div class="slide">
-    <article class="card slide-layout slide-layout--center bg-black">
+    <article class="card slide-layout slide-layout--center slide-layout--step-reveal bg-black">
       <p class="slide-step-label">3</p>
       <p class="slide-title">Use The Validators</p>
+      <audio class="step-reveal__audio" src="9.mp3" preload="auto"></audio>
     </article>
   </div>
+  <script>
+    (function () {
+      var slide = document.querySelector('.slide-layout--step-reveal');
+      if (!slide) return;
+
+      var audio = slide.querySelector('.step-reveal__audio');
+
+      function play() {
+        slide.classList.remove('is-playing');
+        void slide.offsetWidth;
+        slide.classList.add('is-playing');
+
+        if (audio) {
+          audio.currentTime = 0;
+          audio.play();
+        }
+      }
+
+      if (new URLSearchParams(window.location.search).has('autoplay')) {
+        play();
+      }
+
+      window.addEventListener('click', play);
+      window.addEventListener('keydown', function (event) {
+        if (event.repeat) return;
+        play();
+      });
+    })();
+  </script>
 </body>
 </html>

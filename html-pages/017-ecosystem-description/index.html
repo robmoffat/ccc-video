@@ -9,7 +9,7 @@
 </head>
 <body class="theme-brand">
   <div class="slide">
-    <article class="card slide-layout slide-layout--center bg-black">
+    <article class="card slide-layout slide-layout--center ecosystem-grid--animated bg-black">
       <div class="ecosystem-grid">
         <div class="ecosystem-logo">
           <div class="ecosystem-logo__mark">
@@ -67,7 +67,80 @@
         </div>
       </div>
       <p class="slide-url" style="font-size: 2.5rem; margin-top: 1.5rem;">ccc.finos.org/ecosystem</p>
+      <audio class="ecosystem-grid__audio" src="8.2.mp3" preload="auto"></audio>
     </article>
   </div>
+  <script>
+    (function () {
+      var slide = document.querySelector('.ecosystem-grid--animated');
+      if (!slide) return;
+
+      var audio = slide.querySelector('.ecosystem-grid__audio');
+      var logos = Array.prototype.slice.call(slide.querySelectorAll('.ecosystem-logo'));
+
+      function parseSeconds(value) {
+        return parseFloat(value) * 1000;
+      }
+
+      function getEcosystemTiming() {
+        var styles = getComputedStyle(slide);
+        return {
+          iconStart: parseSeconds(styles.getPropertyValue('--ecosystem-icon-phase-start').trim() || '0s'),
+          iconPhase: parseSeconds(styles.getPropertyValue('--ecosystem-icon-phase').trim() || '8s')
+        };
+      }
+
+      function shuffle(items) {
+        var shuffled = items.slice();
+
+        for (var i = shuffled.length - 1; i > 0; i -= 1) {
+          var j = Math.floor(Math.random() * (i + 1));
+          var temp = shuffled[i];
+          shuffled[i] = shuffled[j];
+          shuffled[j] = temp;
+        }
+
+        return shuffled;
+      }
+
+      function resetLogos() {
+        logos.forEach(function (logo) {
+          logo.classList.remove('is-revealed');
+          logo.style.animationDelay = '';
+        });
+      }
+
+      function play() {
+        var timing = getEcosystemTiming();
+        var orderedLogos = shuffle(logos);
+        var iconStep = timing.iconPhase / orderedLogos.length;
+
+        resetLogos();
+        slide.classList.remove('is-playing');
+        void slide.offsetWidth;
+        slide.classList.add('is-playing');
+
+        orderedLogos.forEach(function (logo, index) {
+          logo.classList.add('is-revealed');
+          logo.style.animationDelay = (timing.iconStart + index * iconStep) + 'ms';
+        });
+
+        if (audio) {
+          audio.currentTime = 0;
+          audio.play();
+        }
+      }
+
+      if (new URLSearchParams(window.location.search).has('autoplay')) {
+        play();
+      }
+
+      window.addEventListener('click', play);
+      window.addEventListener('keydown', function (event) {
+        if (event.repeat) return;
+        play();
+      });
+    })();
+  </script>
 </body>
 </html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1920">
+  <title>21. Ditch Spreadsheets</title>
+  <link rel="stylesheet" href="../styles/presentation-brand.css">
+  <link rel="stylesheet" href="../styles/slides.css">
+</head>
+<body class="theme-brand">
+  <div class="slide">
+    <article class="card slide-layout slide-layout--video-reveal slide-layout--ditch-spreadsheets bg-black">
+      <div class="video-reveal">
+        <div class="video-reveal__frame">
+          <video
+            class="video-reveal__panel"
+            src="ElevenLabs_video_seedance-2-0_show%20a%20hand%20rea_2026-06-14T09_55_00.mp4"
+            muted
+            playsinline
+            loop
+            preload="auto"
+          ></video>
+        </div>
+      </div>
+      <audio class="video-reveal__audio" src="10-5.mp3" preload="auto"></audio>
+    </article>
+  </div>
+  <script>
+    (function () {
+      var slide = document.querySelector('.slide-layout--ditch-spreadsheets');
+      if (!slide) return;
+
+      var video = slide.querySelector('.video-reveal__panel');
+      var audio = slide.querySelector('.video-reveal__audio');
+      var timeout;
+
+      function parseSeconds(value) {
+        return parseFloat(value) * 1000;
+      }
+
+      function getRevealStart() {
+        var styles = getComputedStyle(slide);
+        return parseSeconds(styles.getPropertyValue('--video-reveal-start').trim() || '2s');
+      }
+
+      function clearScheduled() {
+        if (timeout) {
+          clearTimeout(timeout);
+          timeout = null;
+        }
+      }
+
+      function play() {
+        clearScheduled();
+        slide.classList.remove('is-playing');
+        void slide.offsetWidth;
+        slide.classList.add('is-playing');
+
+        if (video) {
+          video.pause();
+          video.currentTime = 0;
+          timeout = setTimeout(function () {
+            video.currentTime = 0;
+            video.play();
+          }, getRevealStart());
+        }
+
+        if (audio) {
+          audio.currentTime = 0;
+          audio.play();
+        }
+      }
+
+      if (new URLSearchParams(window.location.search).has('autoplay')) {
+        play();
+      }
+
+      window.addEventListener('click', play);
+      window.addEventListener('keydown', function (event) {
+        if (event.repeat) return;
+        play();
+      });
+    })();
+  </script>
+</body>
+</html>

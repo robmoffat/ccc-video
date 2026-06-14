@@ -9,9 +9,96 @@
 </head>
 <body class="theme-brand">
   <div class="slide">
-    <article class="card slide-layout slide-layout--center bg-black">
-      <p class="slide-url">ccc.finos.org</p>
+    <article class="card slide-layout slide-layout--center slide-layout--typewriter bg-black">
+      <p class="slide-url typewriter-text">
+        <span
+          class="typewriter-text__content"
+          data-text="ccc.finos.org"
+        ></span><span class="typewriter-text__cursor" aria-hidden="true"></span>
+      </p>
+      <audio class="typewriter-audio" src="11.mp3" preload="auto"></audio>
     </article>
   </div>
+  <script>
+    (function () {
+      var slide = document.querySelector('.slide-layout--typewriter');
+      if (!slide) return;
+
+      var content = slide.querySelector('.typewriter-text__content');
+      var cursor = slide.querySelector('.typewriter-text__cursor');
+      var audio = slide.querySelector('.typewriter-audio');
+      var timeouts = [];
+      var fullText = content.getAttribute('data-text') || '';
+
+      function clearScheduled() {
+        timeouts.forEach(clearTimeout);
+        timeouts = [];
+      }
+
+      function finishTyping() {
+        slide.classList.add('is-complete');
+      }
+
+      function typeText(durationMs) {
+        var index = 0;
+        var interval = durationMs / fullText.length;
+
+        content.textContent = '';
+        slide.classList.remove('is-complete');
+        cursor.hidden = false;
+
+        function tick() {
+          if (index >= fullText.length) {
+            finishTyping();
+            return;
+          }
+
+          content.textContent += fullText.charAt(index);
+          index += 1;
+          timeouts.push(setTimeout(tick, interval));
+        }
+
+        tick();
+      }
+
+      function play() {
+        clearScheduled();
+        slide.classList.remove('is-playing', 'is-complete');
+        content.textContent = '';
+        cursor.hidden = false;
+
+        if (!audio) {
+          typeText(5000);
+          slide.classList.add('is-playing');
+          return;
+        }
+
+        audio.currentTime = 0;
+
+        function start() {
+          slide.classList.add('is-playing');
+          typeText((audio.duration || 5) * 1000 * 0.75);
+          audio.play();
+        }
+
+        if (audio.readyState >= 1) {
+          start();
+        } else {
+          audio.addEventListener('loadedmetadata', start, { once: true });
+          audio.load();
+        }
+      }
+
+      if (new URLSearchParams(window.location.search).has('autoplay')) {
+        play();
+      }
+
+      window.addEventListener('click', play);
+      window.addEventListener('keydown', function (event) {
+        if (event.repeat) return;
+        play();
+      });
+    })();
+  </script>
 </body>
 </html>

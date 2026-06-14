@@ -1070,6 +1070,31 @@
   align-items: stretch;
 }
 
+.theme-brand .ecosystem-grid--animated {
+  --ecosystem-icon-phase-start: 0s;
+  --ecosystem-icon-phase: 8s;
+}
+
+.theme-brand .ecosystem-grid--animated .ecosystem-logo {
+  opacity: 0;
+}
+
+.theme-brand .ecosystem-grid--animated.is-playing .ecosystem-logo.is-revealed {
+  animation: build-icon-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.theme-brand .ecosystem-grid__audio {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-brand .ecosystem-grid--animated .ecosystem-logo {
+    opacity: 1;
+    animation: none;
+    transform: none;
+  }
+}
+
 .theme-brand .ecosystem-logo {
   display: flex;
   flex-direction: column;
@@ -1157,6 +1182,51 @@
   flex: 1;
   align-content: center;
   min-height: 0;
+}
+
+.theme-brand .slide-layout--gemara-animated {
+  --gemara-reveal-start: 0s;
+  --gemara-ring-interval: 1s;
+  --gemara-reveal-duration: 0.6s;
+}
+
+.theme-brand .slide-layout--gemara-animated .gemara-layer {
+  opacity: 0;
+}
+
+.theme-brand .slide-layout--gemara-animated.is-playing .gemara-layer {
+  animation: problem-reveal-fade-in var(--gemara-reveal-duration) ease-out forwards;
+  animation-delay: calc(var(--gemara-reveal-start) + var(--gemara-ring-step, 0) * var(--gemara-ring-interval));
+}
+
+.theme-brand .slide-layout--gemara-animated.is-playing .gemara-layer:nth-child(4) {
+  --gemara-ring-step: 0;
+}
+
+.theme-brand .slide-layout--gemara-animated.is-playing .gemara-layer:nth-child(3),
+.theme-brand .slide-layout--gemara-animated.is-playing .gemara-layer:nth-child(5) {
+  --gemara-ring-step: 1;
+}
+
+.theme-brand .slide-layout--gemara-animated.is-playing .gemara-layer:nth-child(2),
+.theme-brand .slide-layout--gemara-animated.is-playing .gemara-layer:nth-child(6) {
+  --gemara-ring-step: 2;
+}
+
+.theme-brand .slide-layout--gemara-animated.is-playing .gemara-layer:nth-child(1),
+.theme-brand .slide-layout--gemara-animated.is-playing .gemara-layer:nth-child(7) {
+  --gemara-ring-step: 3;
+}
+
+.theme-brand .gemara__audio {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-brand .slide-layout--gemara-animated .gemara-layer {
+    opacity: 1;
+    animation: none;
+  }
 }
 
 .theme-brand .gemara-tagline {
@@ -1300,9 +1370,33 @@
   display: none;
 }
 
+@keyframes slide-fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.theme-brand .slide-layout--ditch-spreadsheets {
+  --slide-fade-out-start: 5s;
+  --slide-fade-out-duration: 2s;
+}
+
+.theme-brand .slide-layout--ditch-spreadsheets.is-playing {
+  animation: slide-fade-out var(--slide-fade-out-duration) ease-out forwards;
+  animation-delay: var(--slide-fade-out-start);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .theme-brand .slide-layout--video-reveal .video-reveal__frame {
     opacity: 1;
+    animation: none;
+  }
+
+  .theme-brand .slide-layout--ditch-spreadsheets.is-playing {
     animation: none;
   }
 }
