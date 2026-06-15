@@ -1,0 +1,6 @@
+assembled-with-score
+*.mov
+.DS_Store
+**/.DS_Store
+audio-clips/.DS_Store
+html-pages/.DS_Store
